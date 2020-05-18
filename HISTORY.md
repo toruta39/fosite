@@ -136,7 +136,7 @@ This release makes it easier to define custom JWT Containers for access tokens w
 the following signatures have changed:
 
 ```go
-// github.com/ory/fosite/handler/oauth2
+// github.com/toruta39/fosite/handler/oauth2
 type JWTSessionContainer interface {
 	// GetJWTClaims returns the claims.
 -	GetJWTClaims() *jwt.JWTClaims
@@ -174,7 +174,7 @@ This release addresses areas where the go context was missing or not propagated 
 
 #### `fosite/handler/oauth2.JWTStrategy`
 
-The [`fosite/handler/oauth2.JWTStrategy`](https://github.com/ory/fosite/blob/master/handler/oauth2/strategy.go) interface changed as a context
+The [`fosite/handler/oauth2.JWTStrategy`](https://github.com/toruta39/fosite/blob/master/handler/oauth2/strategy.go) interface changed as a context
 parameter was added to its method signature:
 
 ```go
@@ -186,7 +186,7 @@ type JWTStrategy interface {
 
 #### `OpenIDConnectRequestValidator.ValidatePrompt`
 
-The [`OpenIDConnectRequestValidator.ValidatePrompt`](https://github.com/ory/fosite/blob/master/handler/openid/validator.go)
+The [`OpenIDConnectRequestValidator.ValidatePrompt`](https://github.com/toruta39/fosite/blob/master/handler/openid/validator.go)
 method signature was updated to take a go context as its first parameter:
 
 ```go
@@ -202,7 +202,7 @@ This releases addresses inconsistencies in some of the public interfaces by pass
 
 #### `Hasher`
 
-The [`Hasher`](https://github.com/ory/fosite/blob/master/hash.go) interface
+The [`Hasher`](https://github.com/toruta39/fosite/blob/master/hash.go) interface
 changed as a context parameter was added to its method signatures:
 
 ```go
@@ -222,7 +222,7 @@ This releases addresses inconsistencies in some of the public interfaces by pass
 
 #### `JWTStrategy`
 
-The [`JWTStrategy`](https://github.com/ory/fosite/blob/master/token/jwt/jwt.go) interface
+The [`JWTStrategy`](https://github.com/toruta39/fosite/blob/master/token/jwt/jwt.go) interface
 changed as a context parameter was added to its method signatures:
 
 ```go
@@ -310,19 +310,19 @@ if an authorization code is used more than one time.
 
 ### JWT Claims
 
-- `github.com/ory/fosite/token/jwt.JWTClaims.Audience` is no longer a `string`, but a string slice `[]string`.
-- `github.com/ory/fosite/handler/openid.IDTokenClaims` is no longer a `string`, but a string slice `[]string`.
+- `github.com/toruta39/fosite/token/jwt.JWTClaims.Audience` is no longer a `string`, but a string slice `[]string`.
+- `github.com/toruta39/fosite/handler/openid.IDTokenClaims` is no longer a `string`, but a string slice `[]string`.
 
 ### `AuthorizeCodeStorage`
 
 This improves security as, in the event of an authorization code being leaked, all associated tokens are revoked. To
-implement this feature, a breaking change had to be introduced. The `github.com/ory/fosite/handler/oauth2.AuthorizeCodeStorage`
+implement this feature, a breaking change had to be introduced. The `github.com/toruta39/fosite/handler/oauth2.AuthorizeCodeStorage`
 interface changed as follows:
 
 - `DeleteAuthorizeCodeSession(ctx context.Context, code string) (err error)` has been removed from the interface and
 is no longer used by this library.
 - `InvalidateAuthorizeCodeSession(ctx context.Context, code string) (err error)` has been introduced.
-- The error `github.com/ory/fosite/handler/oauth2.ErrInvalidatedAuthorizeCode` has been added.
+- The error `github.com/toruta39/fosite/handler/oauth2.ErrInvalidatedAuthorizeCode` has been added.
 
 The following documentation sheds light on how you should update your storage adapter:
 
@@ -409,7 +409,7 @@ implementations. For this reason, `RevealDebugPayloads` defaults to false. Keep 
 very helpful when specific OAuth 2.0 requests fail and we generally recommend displaying debug information.
 
 Additionally, error keys for JSON changed which caused a new minor version, speicifically
-[`statusCode` was changed to `status_code`](https://github.com/ory/fosite/pull/242/files#diff-dd25e0e0a594c3f3592c1c717039b85eR221).
+[`statusCode` was changed to `status_code`](https://github.com/toruta39/fosite/pull/242/files#diff-dd25e0e0a594c3f3592c1c717039b85eR221).
 
 
 ## 0.15.0
@@ -480,11 +480,11 @@ will increase iterations per line during tests and reduce annoying mock updates.
 
 #### WildcardScopeStrategy
 
-A new [scope strategy](https://github.com/ory/fosite/pull/187) was introduced called `WildcardScopeStrategy`. This strategy is now the default when using
+A new [scope strategy](https://github.com/toruta39/fosite/pull/187) was introduced called `WildcardScopeStrategy`. This strategy is now the default when using
 the composer. To set the HierarchicScopeStrategy strategy, do:
 
 ```
-import "github.com/ory/fosite/compose"
+import "github.com/toruta39/fosite/compose"
 
 var config = &compose.Config{
     ScopeStrategy: fosite.HierarchicScopeStrategy,
@@ -553,13 +553,13 @@ package compose
 
 This patch addresses some inconsistencies in the public interfaces. Also
 remaining references to the old repository location at `ory-am/fosite` 
-where updated to `ory/fosite`.
+where updated to `toruta39/fosite`.
 
 ### Breaking changes
 
 #### `ClientManager`
 
-The [`ClientManager`](https://github.com/ory/fosite/blob/master/client_manager.go) interface
+The [`ClientManager`](https://github.com/toruta39/fosite/blob/master/client_manager.go) interface
 changed, as a context parameter was added:
 
 ```go
@@ -573,7 +573,7 @@ type ClientManager interface {
 
 #### `OAuth2Provider`
 
-The [OAuth2Provider](https://github.com/ory/fosite/blob/master/oauth2.go) interface changed,
+The [OAuth2Provider](https://github.com/toruta39/fosite/blob/master/oauth2.go) interface changed,
 as the need for passing down `*http.Request` was removed. This is justifiable
 because `NewAuthorizeRequest` and `NewAccessRequest` already contain `*http.Request`.
 
@@ -593,7 +593,7 @@ The public api of those two methods changed:
 Breaking changes:
 
 * Replaced `"golang.org/x/net/context"` with `"context"`.
-* Move the repo from `github.com/ory-am/fosite` to `github.com/ory/fosite`
+* Move the repo from `github.com/ory-am/fosite` to `github.com/toruta39/fosite`
 
 ## 0.6.0
 

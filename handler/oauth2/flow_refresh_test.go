@@ -30,14 +30,14 @@ import (
 
 	"github.com/golang/mock/gomock"
 
-	"github.com/ory/fosite/internal"
+	"github.com/toruta39/fosite/internal"
 
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/storage"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/storage"
 )
 
 func TestRefreshFlow_HandleTokenEndpointRequest(t *testing.T) {

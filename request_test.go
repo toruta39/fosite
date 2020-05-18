@@ -28,7 +28,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	. "github.com/ory/fosite"
+	. "github.com/toruta39/fosite"
 )
 
 func TestRequest(t *testing.T) {

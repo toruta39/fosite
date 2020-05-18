@@ -33,11 +33,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ory/fosite"
-	. "github.com/ory/fosite"
-	"github.com/ory/fosite/compose"
-	"github.com/ory/fosite/internal"
-	"github.com/ory/fosite/storage"
+	"github.com/toruta39/fosite"
+	. "github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/compose"
+	"github.com/toruta39/fosite/internal"
+	"github.com/toruta39/fosite/storage"
 )
 
 func TestIntrospectionResponse(t *testing.T) {

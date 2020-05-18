@@ -30,13 +30,13 @@ import (
 	goauth "golang.org/x/oauth2"
 	"golang.org/x/oauth2/clientcredentials"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/handler/oauth2"
-	"github.com/ory/fosite/handler/openid"
-	"github.com/ory/fosite/internal"
-	"github.com/ory/fosite/storage"
-	"github.com/ory/fosite/token/hmac"
-	"github.com/ory/fosite/token/jwt"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/handler/oauth2"
+	"github.com/toruta39/fosite/handler/openid"
+	"github.com/toruta39/fosite/internal"
+	"github.com/toruta39/fosite/storage"
+	"github.com/toruta39/fosite/token/hmac"
+	"github.com/toruta39/fosite/token/jwt"
 )
 
 var fositeStore = &storage.MemoryStore{

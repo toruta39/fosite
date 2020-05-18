@@ -26,8 +26,8 @@ import (
 
 	"github.com/mohae/deepcopy"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/token/jwt"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/token/jwt"
 )
 
 type JWTSessionContainer interface {

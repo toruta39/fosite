@@ -30,8 +30,8 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 
-	. "github.com/ory/fosite"
-	. "github.com/ory/fosite/internal"
+	. "github.com/toruta39/fosite"
+	. "github.com/toruta39/fosite/internal"
 )
 
 // Test for

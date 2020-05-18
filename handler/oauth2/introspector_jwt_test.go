@@ -30,9 +30,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/internal"
-	"github.com/ory/fosite/token/jwt"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/internal"
+	"github.com/toruta39/fosite/token/jwt"
 )
 
 func TestIntrospectJWT(t *testing.T) {

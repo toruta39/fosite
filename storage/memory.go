@@ -27,7 +27,7 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/ory/fosite"
+	"github.com/toruta39/fosite"
 )
 
 type MemoryUserRelation struct {

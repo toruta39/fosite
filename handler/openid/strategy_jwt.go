@@ -31,9 +31,9 @@ import (
 	"github.com/mohae/deepcopy"
 	"github.com/pkg/errors"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/token/jwt"
 	"github.com/ory/go-convenience/stringslice"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/token/jwt"
 )
 
 const defaultExpiryTime = time.Hour

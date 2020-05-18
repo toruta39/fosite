@@ -31,8 +31,8 @@ import (
 	"github.com/stretchr/testify/require"
 	jose "gopkg.in/square/go-jose.v2"
 
-	. "github.com/ory/fosite"
-	"github.com/ory/fosite/internal"
+	. "github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/internal"
 )
 
 func TestDefaultJWKSFetcherStrategy(t *testing.T) {

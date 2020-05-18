@@ -29,9 +29,9 @@ import (
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/internal"
-	"github.com/ory/fosite/token/jwt"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/internal"
+	"github.com/toruta39/fosite/token/jwt"
 )
 
 var strat = &DefaultStrategy{

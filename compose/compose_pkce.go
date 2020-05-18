@@ -22,8 +22,8 @@
 package compose
 
 import (
-	"github.com/ory/fosite/handler/oauth2"
-	"github.com/ory/fosite/handler/pkce"
+	"github.com/toruta39/fosite/handler/oauth2"
+	"github.com/toruta39/fosite/handler/pkce"
 )
 
 // OAuth2PKCEFactory creates a PKCE handler.

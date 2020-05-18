@@ -29,16 +29,16 @@ import (
 
 	"github.com/golang/mock/gomock"
 
-	"github.com/ory/fosite/internal"
+	"github.com/toruta39/fosite/internal"
 
 	//"github.com/golang/mock/gomock"
 	"time"
 
-	"github.com/ory/fosite" //"github.com/ory/fosite/internal"
-	"github.com/ory/fosite/storage"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/toruta39/fosite" //"github.com/toruta39/fosite/internal"
+	"github.com/toruta39/fosite/storage"
 )
 
 func TestAuthorizeCode_PopulateTokenEndpointResponse(t *testing.T) {

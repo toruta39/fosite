@@ -30,8 +30,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/internal"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/internal"
 )
 
 func TestAuthorizeImplicit_EndpointHandler(t *testing.T) {

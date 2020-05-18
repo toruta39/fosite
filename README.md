@@ -1,8 +1,8 @@
 <h1 align="center"><img src="./docs/image/banner_fosite.png" alt="ORY Fosite - Security-first OAuth2 framework"></h1>
 
-[![Build Status](https://travis-ci.org/ory/fosite.svg?branch=master)](https://travis-ci.org/ory/fosite?branch=master)
-[![Coverage Status](https://coveralls.io/repos/ory/fosite/badge.svg?branch=master&service=github&foo)](https://coveralls.io/github/ory/fosite?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/ory/fosite)](https://goreportcard.com/report/ory/fosite)
+[![Build Status](https://travis-ci.org/toruta39/fosite.svg?branch=master)](https://travis-ci.org/toruta39/fosite?branch=master)
+[![Coverage Status](https://coveralls.io/repos/toruta39/fosite/badge.svg?branch=master&service=github&foo)](https://coveralls.io/github/toruta39/fosite?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/toruta39/fosite)](https://goreportcard.com/report/toruta39/fosite)
 
 [![Join the chat at https://www.ory.sh/chat](https://img.shields.io/badge/join-chat-00cc99.svg)](https://www.ory.sh/chat)
 
@@ -73,15 +73,15 @@ of code.
 You can run this minimalistic example by doing
 
 ```
-go get github.com/ory/fosite-example
-cd $GOPATH/src/github.com/ory/fosite-example
+go get github.com/toruta39/fosite-example
+cd $GOPATH/src/github.com/toruta39/fosite-example
 dep ensure
-go install github.com/ory/fosite-example
+go install github.com/toruta39/fosite-example
 fosite-example
 ```
 
 There should be a server listening on [localhost:3846](https://localhost:3846/). You can check out the example's
-source code [here](https://github.com/ory/fosite-example/).
+source code [here](https://github.com/toruta39/fosite-example/).
 
 ## A word on quality
 
@@ -128,7 +128,7 @@ Additionally, we added these safeguards:
 
 Sections below [Section 5](https://tools.ietf.org/html/rfc6819#section-5)
 that are not covered in the list above should be reviewed by you. If you think that a specific section should be something
-that is covered in Fosite, feel free to create an [issue](https://github.com/ory/fosite/issues). Please be
+that is covered in Fosite, feel free to create an [issue](https://github.com/toruta39/fosite/issues). Please be
 aware that OpenID Connect requires specific knowledge of the identity provider, which is why Fosite only implements core
 requirements and most things must be implemented by you (for example prompt, max_age, ui_locales, id_token_hint, user authentication, session management, ...).
 
@@ -148,7 +148,7 @@ OAuth2 stack, that's no problem. Or custom assertions, what ever you like and as
 GOPATH environment variable.
 
 ```
-go get -u github.com/ory/fosite/...
+go get -u github.com/toruta39/fosite/...
 ```
 
 We recommend to use [dep](https://github.com/golang/dep) to
@@ -156,7 +156,7 @@ mitigate compatibility breaks that come with new api versions.
 
 ## Documentation
 
-There is an API documentation available at [godoc.org/ory/fosite](https://godoc.org/github.com/ory/fosite).
+There is an API documentation available at [godoc.org/toruta39/fosite](https://godoc.org/github.com/toruta39/fosite).
 
 ### Scopes
 
@@ -166,7 +166,7 @@ one by implementing `fosite.ScopeStrategy`.
 Using the composer, setting a strategy is easy:
 
 ```go
-import "github.com/ory/fosite/compose"
+import "github.com/toruta39/fosite/compose"
 
 var config = &compose.Config{
     ScopeStrategy: fosite.HierarchicScopeStrategy,
@@ -217,14 +217,14 @@ Instantiating fosite by hand can be painful. Therefore we created a few convenie
 It is strongly encouraged to use these well tested composers.
 
 In this very basic example, we will instantiate fosite with all OpenID Connect and OAuth2 handlers enabled. Please refer
-to the [example app](https://github.com/ory/fosite-example/) for more details.
+to the [example app](https://github.com/toruta39/fosite-example/) for more details.
 
 This little code snippet sets up a full-blown OAuth2 and OpenID Connect example.
 
 ```go
-import "github.com/ory/fosite"
-import "github.com/ory/fosite/compose"
-import "github.com/ory/fosite/storage"
+import "github.com/toruta39/fosite"
+import "github.com/toruta39/fosite/compose"
+import "github.com/toruta39/fosite/storage"
 
 // This is the example storage that contains:
 // * an OAuth2 Client with id "my-client" and secret "foobar" capable of all oauth2 and open id connect grant and response types.
@@ -356,7 +356,7 @@ func someResourceProviderHandlerFunc(rw http.ResponseWriter, req *http.Request) 
 
 Fosite provides integration tests as well as a http server example:
 
-* Fosite ships with an example app that runs in your browser: [Example app](https://github.com/ory/fosite-example/).
+* Fosite ships with an example app that runs in your browser: [Example app](https://github.com/toruta39/fosite-example/).
 * If you want to check out how to enable specific handlers, check out the [integration tests](integration/).
 
 If you have working examples yourself, please share them with us!
@@ -393,8 +393,8 @@ Please note that when using the OAuth2StatelessJWTIntrospectionFactory access to
 You need git and golang installed on your system.
 
 ```
-go get -d github.com/ory/fosite
-cd $GOPATH/src/github.com/ory/fosite
+go get -d github.com/toruta39/fosite
+cd $GOPATH/src/github.com/toruta39/fosite
 git status
 git remote add myfork <url-to-your-fork>
 go test ./..
@@ -412,23 +412,23 @@ Run `./generate-mocks.sh` in fosite's root directory or run the contents of [gen
 This place is reserved for the fearless bug hunters, reviewers and contributors (alphabetical order).
 
 * [agtorre](https://github.com/agtorre):
-  [contributions](https://github.com/ory/fosite/issues?q=author%3Aagtorre),
-  [participations](https://github.com/ory/fosite/issues?q=commenter%3Aagtorre).
+  [contributions](https://github.com/toruta39/fosite/issues?q=author%3Aagtorre),
+  [participations](https://github.com/toruta39/fosite/issues?q=commenter%3Aagtorre).
 * [danielchatfield](https://github.com/danielchatfield):
-  [contributions](https://github.com/ory/fosite/issues?q=author%3Adanielchatfield),
-  [participations](https://github.com/ory/fosite/issues?q=commenter%3Adanielchatfield).
+  [contributions](https://github.com/toruta39/fosite/issues?q=author%3Adanielchatfield),
+  [participations](https://github.com/toruta39/fosite/issues?q=commenter%3Adanielchatfield).
 * [leetal](https://github.com/leetal):
-  [contributions](https://github.com/ory/fosite/issues?q=author%3Aleetal),
-  [participations](https://github.com/ory/fosite/issues?q=commenter%3Aleetal).
+  [contributions](https://github.com/toruta39/fosite/issues?q=author%3Aleetal),
+  [participations](https://github.com/toruta39/fosite/issues?q=commenter%3Aleetal).
 * [jrossiter](https://github.com/jrossiter):
-  [contributions](https://github.com/ory/fosite/issues?q=author%3Ajrossiter),
-  [participations](https://github.com/ory/fosite/issues?q=commenter%3Ajrossiter).
+  [contributions](https://github.com/toruta39/fosite/issues?q=author%3Ajrossiter),
+  [participations](https://github.com/toruta39/fosite/issues?q=commenter%3Ajrossiter).
 * [jrossiter](https://github.com/jrossiter):
-  [contributions](https://github.com/ory/fosite/issues?q=author%3Ajrossiter),
-  [participations](https://github.com/ory/fosite/issues?q=commenter%3Ajrossiter).
+  [contributions](https://github.com/toruta39/fosite/issues?q=author%3Ajrossiter),
+  [participations](https://github.com/toruta39/fosite/issues?q=commenter%3Ajrossiter).
 * [danilobuerger](https://github.com/danilobuerger):
-  [contributions](https://github.com/ory/fosite/issues?q=author%3Adanilobuerger),
-  [participations](https://github.com/ory/fosite/issues?q=commenter%3Adanilobuerger).
+  [contributions](https://github.com/toruta39/fosite/issues?q=author%3Adanilobuerger),
+  [participations](https://github.com/toruta39/fosite/issues?q=commenter%3Adanilobuerger).
 
 Find out more about the [author](https://aeneas.io/) of Fosite and Hydra, and the
 [Ory Company](https://ory.am/).

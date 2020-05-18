@@ -1,6 +1,6 @@
 language: go
 
-go_import_path: github.com/ory/fosite
+go_import_path: github.com/toruta39/fosite
 
 go:
   - "1.14"

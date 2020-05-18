@@ -27,8 +27,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	. "github.com/ory/fosite"
-	"github.com/ory/fosite/handler/oauth2"
+	. "github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/handler/oauth2"
 )
 
 func TestAuthorizeEndpointHandlers(t *testing.T) {

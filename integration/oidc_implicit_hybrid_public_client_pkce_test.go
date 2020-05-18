@@ -34,11 +34,11 @@ import (
 	"github.com/stretchr/testify/require"
 	goauth "golang.org/x/oauth2"
 
-	"github.com/ory/fosite"
-	"github.com/ory/fosite/compose"
-	"github.com/ory/fosite/handler/openid"
-	"github.com/ory/fosite/internal"
-	"github.com/ory/fosite/token/jwt"
+	"github.com/toruta39/fosite"
+	"github.com/toruta39/fosite/compose"
+	"github.com/toruta39/fosite/handler/openid"
+	"github.com/toruta39/fosite/internal"
+	"github.com/toruta39/fosite/token/jwt"
 )
 
 func TestOIDCImplicitFlowPublicClientPKCE(t *testing.T) {

@@ -24,7 +24,7 @@ package hmac
 import (
 	"testing"
 
-	"github.com/ory/fosite"
+	"github.com/toruta39/fosite"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
