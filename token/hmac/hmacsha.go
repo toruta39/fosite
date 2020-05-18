@@ -33,6 +33,7 @@ import (
 	"sync"
 
 	"github.com/pkg/errors"
+	"github.com/sirupsen/logrus"
 
 	"github.com/ory/fosite"
 )
@@ -95,6 +96,8 @@ func (c *HMACStrategy) Generate() (string, string, error) {
 func (c *HMACStrategy) Validate(token string) (err error) {
 	var keys [][]byte
 
+	logrus.Info("[enigma.HMACStrategy] Validate start")
+
 	if len(c.GlobalSecret) > 0 {
 		keys = append(keys, c.GlobalSecret)
 	}
@@ -107,7 +110,9 @@ func (c *HMACStrategy) Validate(token string) (err error) {
 		if err = c.validate(key, token); err == nil {
 			return nil
 		} else if errors.Cause(err) == fosite.ErrTokenSignatureMismatch {
+			logrus.Warn("[enigma.HMACStrategy] Validate found sig mismatch")
 		} else {
+			logrus.Warn("[enigma.HMACStrategy] Validate failed with unknown error")
 			return err
 		}
 	}

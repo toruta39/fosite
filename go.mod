@@ -15,6 +15,7 @@ require (
 	github.com/parnurzeal/gorequest v0.2.15
 	github.com/pborman/uuid v1.2.0
 	github.com/pkg/errors v0.8.1
+	github.com/sirupsen/logrus v1.4.2
 	github.com/stretchr/testify v1.4.0
 	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
 	golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e // indirect

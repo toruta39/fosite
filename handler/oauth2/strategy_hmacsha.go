@@ -26,6 +26,7 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	"github.com/sirupsen/logrus"
 
 	"github.com/ory/fosite"
 	enigma "github.com/ory/fosite/token/hmac"
@@ -53,13 +54,17 @@ func (h HMACSHAStrategy) GenerateAccessToken(_ context.Context, _ fosite.Request
 }
 
 func (h HMACSHAStrategy) ValidateAccessToken(_ context.Context, r fosite.Requester, token string) (err error) {
+	logrus.Info("[HMACSHAStrategy] ValidateAccessToken started")
 	var exp = r.GetSession().GetExpiresAt(fosite.AccessToken)
 	if exp.IsZero() && r.GetRequestedAt().Add(h.AccessTokenLifespan).Before(time.Now().UTC()) {
+		logrus.Warn("[HMACSHAStrategy] ValidateAccessToken failed with expired token, by lifespan")
 		return errors.WithStack(fosite.ErrTokenExpired.WithHintf("Access token expired at \"%s\".", r.GetRequestedAt().Add(h.AccessTokenLifespan)))
 	}
 	if !exp.IsZero() && exp.Before(time.Now().UTC()) {
+		logrus.Warn("[HMACSHAStrategy] ValidateAccessToken failed with expired token, by expire at")
 		return errors.WithStack(fosite.ErrTokenExpired.WithHintf("Access token expired at \"%s\".", exp))
 	}
+	logrus.Info("[HMACSHAStrategy] ValidateAccessToken asking enigma to validate")
 	return h.Enigma.Validate(token)
 }
 
