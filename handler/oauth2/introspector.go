@@ -25,6 +25,7 @@ import (
 	"context"
 
 	"github.com/pkg/errors"
+	"github.com/sirupsen/logrus"
 
 	"github.com/toruta39/fosite"
 )
@@ -38,9 +39,12 @@ type CoreValidator struct {
 
 func (c *CoreValidator) IntrospectToken(ctx context.Context, token string, tokenType fosite.TokenType, accessRequest fosite.AccessRequester, scopes []string) (fosite.TokenType, error) {
 	if c.DisableRefreshTokenValidation {
+		logrus.Info("[CoreValidator] IntrospectToken refresh token validation disabled")
 		if err := c.introspectAccessToken(ctx, token, accessRequest, scopes); err != nil {
+			logrus.Warnf("[CoreValidator] IntrospectToken failed with error: %s", err)
 			return "", err
 		}
+		logrus.Info("[CoreValidator] IntrospectToken succeeded")
 		return fosite.AccessToken, nil
 	}
 
@@ -79,18 +83,23 @@ func matchScopes(ss fosite.ScopeStrategy, granted, scopes []string) error {
 }
 
 func (c *CoreValidator) introspectAccessToken(ctx context.Context, token string, accessRequest fosite.AccessRequester, scopes []string) error {
+	logrus.Info("[CoreValidator] introspectAccessToken started")
 	sig := c.CoreStrategy.AccessTokenSignature(token)
 	or, err := c.CoreStorage.GetAccessTokenSession(ctx, sig, accessRequest.GetSession())
 	if err != nil {
+		logrus.Warn("[CoreValidator] introspectAccessToken failed with getting access token session")
 		return errors.WithStack(fosite.ErrRequestUnauthorized.WithDebug(err.Error()))
 	} else if err := c.CoreStrategy.ValidateAccessToken(ctx, or, token); err != nil {
+		logrus.Warn("[CoreValidator] introspectAccessToken failed validating access token")
 		return err
 	}
 
 	if err := matchScopes(c.ScopeStrategy, or.GetGrantedScopes(), scopes); err != nil {
+		logrus.Warn("[CoreValidator] introspectAccessToken failed matching scope")
 		return err
 	}
 
+	logrus.Info("[CoreValidator] introspectAccessToken merging request")
 	accessRequest.Merge(or)
 	return nil
 }

@@ -108,6 +108,7 @@ func (c *HMACStrategy) Validate(token string) (err error) {
 
 	for _, key := range keys {
 		if err = c.validate(key, token); err == nil {
+			logrus.Info("[enigma.HMACStrategy] Validate success")
 			return nil
 		} else if errors.Cause(err) == fosite.ErrTokenSignatureMismatch {
 			logrus.Warn("[enigma.HMACStrategy] Validate found sig mismatch")
